@@ -113,12 +113,14 @@ const val rabbit = """Switching on the camera in the rabbit habitat...
 (" ~----( ~   Y.  )
 It looks like we will soon have more rabbits!"""
 
-val list = listOf(camel, lion, deer, goose, bat, rabbit)
+val animals = arrayOf(camel, lion, deer, goose, bat, rabbit)
 
 fun main() {
-    print("Please enter the number of the habitat you would like to view: ")
-    println("""
-${list[readln().toInt()]}
----
-You've reached the end of the program. To check another habitat, please restart the watcher.""")
+    var cmd: Int? = 0
+    while (cmd != null) {
+        print("Please enter the number of the habitat you would like to view: ")
+        cmd = readln().toIntOrNull()
+        cmd?.let { println("\n" + animals[it]) }
+    }
+    println("See you later!")
 }
